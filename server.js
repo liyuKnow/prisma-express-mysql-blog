@@ -21,8 +21,6 @@ app.use("/api/auth/", authRoutes);
 app.use("/api/posts/", postRoutes);
 // app.use("/api/users/", userRoutes);
 
-app.post(`/post`);
-
 app.put("/post/:id/views", async (req, res) => {
   const { id } = req.params;
 
@@ -61,16 +59,6 @@ app.put("/publish/:id", async (req, res) => {
   } catch (error) {
     res.json({ error: `Post with ID ${id} does not exist in the database` });
   }
-});
-
-app.delete(`/post/:id`, async (req, res) => {
-  const { id } = req.params;
-  const post = await prisma.post.delete({
-    where: {
-      id: Number(id),
-    },
-  });
-  res.json(post);
 });
 
 app.get("/users", async (req, res) => {
