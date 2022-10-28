@@ -5,11 +5,11 @@ const router = express.Router();
 
 router.post("/", addPost);
 
-router.get(`/post/:id`, getPost)
+router.get(`/:id`, getPost)
 
-router.delete(`/post/:id`, deletePost);
+router.delete(`/:id`, deletePost);
 
-router.put("/post/:id/views", postViews);
+router.put("/:id/views", postViews);
 
 router.put("/publish/:id", publishPost);
 
